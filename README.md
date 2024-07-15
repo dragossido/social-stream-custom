@@ -11,9 +11,9 @@ Initially, I thought the same approach but decided to go a little forward.
 
 example: 
 a normal bot with the command "!Weather" tells you how the weather is. 
-"Your bot" you can type "!How is the weather today?" and not only reply, but use as reply your user name followed by "Bot".
+"Your bot" you can type "!How is the weather today?" and not only reply, but use as reply your user name followed by "YourBot".
 So for example if your username is "carlins" and you ask "!How is the weather today?" 
-You will have that reply "carlinsBot: the weather is pretty good today"
+You will have that reply "carlinsYourBot: the weather is pretty good today."
 
 I have developed this project with my personal preferences and with silly, fun and joke answers.
 I hope to have enough time to develop more
