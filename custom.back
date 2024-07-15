@@ -1,0 +1,123 @@
+function applyCustomActions(data) {
+    var tid = false;
+    if (data.tid){tid = data.tid;}
+
+    // add emoticon response
+    var emoticons = [':))', ':D', ':s']
+    var messageContainsEmoticon = false;
+
+    for (var i = 0; i < emoticons.length; i++) {
+      if (data.chatmessage.indexOf(emoticons[i]) !== -1) { 
+        messageContainsEmoticon = true;
+        break;
+      }
+    }
+
+    if (messageContainsEmoticon && data.chatmessage != 'aaa') {
+      let answer;
+      answer = `${data.chatname}Bot: nice emoticon`;
+      console.log(answer);
+      respondP2P(answer, tid);
+    }
+  
+    // Add the ! commands
+    if (data.chatmessage.startsWith('!')) {
+      const args = data.chatmessage.slice(9).trim().split(/\s+/);
+      const question = args.join(' ');
+  
+      let answer;
+      switch (true) {
+        case MessageChannel.includes("fortune"):
+          switch (Math.floor(Math.random() * 3)) {
+            case 0:
+              answer = `${data.chatname}Bot: Yes, but when ants will rule the world`;
+              break;
+            case 1:
+              answer = `${data.chatname}Bot: There are more chances that a meteorite destroy the world`;
+              break;
+            default:
+              answer = `${data.chatname}Bot: Unknown`;
+              break;
+        }
+        case MessageChannel.includes("game"):
+          switch (Math.floor(Math.random() * 3)) {
+            case 0:
+              answer = `${data.chatname}Bot: Yes, You win the game`;
+              break;
+            case 1:
+              answer = `${data.chatname}Bot: No, you don't win the game`;
+              break;
+            default:
+              answer = `${data.chatname}Bot: The game is even`;
+              break;
+        }
+        console.log(answer);
+        respondP2P(answer, tid);
+    }
+
+    return data; // return the data, if you want to modify it. If you return "null", it will stop the processing. (also false works, but I'll deprecate that I think)
+  }
+}
+#
+
+
+
+
+
+
+
+
+
+
+if (data.chatmessage.startsWith('!')) {
+  const args = data.chatmessage.slice(9).trim().split(/\s+/);
+  const question = args.join(' ');
+
+  let answer;
+
+  if (data.chatmessage.includes("fortune")) {
+    switch (Math.floor(Math.random() * 3)) {
+      case 0:
+        answer = `${data.chatname}Bot: Yes, but when ants will rule the world`;
+        break;
+      case 1:
+        answer = `${data.chatname}Bot: There are more chances that a meteorite destroy the world`;
+        break;
+      default:
+        answer = `${data.chatname}Bot: Unknown`;
+        break;
+    }
+  } else if (data.chatmessage.includes("game")) {
+    switch (Math.floor(Math.random() * 3)) {
+      case 0:
+        answer = `${data.chatname}Bot: Yes, You win the game`;
+        break;
+      case 1:
+        answer = `${data.chatname}Bot: No, you don't win the game`;
+        break;
+      default:
+        answer = `${data.chatname}Bot: The game is even`;
+        break;
+    }
+  } else if (data.chatmessage.includes("boss")) {
+    switch (Math.floor(Math.random() * 3)) {
+      case 0:
+        answer = `${data.chatname}Bot: Yes, you killed the boss`;
+        break;
+      case 1:
+        answer = `${data.chatname}Bot: No, you were killed by the boss`;
+        break;
+      default:
+        answer = `${data.chatname}Bot: You and the boss have become best friends`;
+        break;
+    }
+  }
+
+  console.log(answer);
+  respondP2P(answer, tid);
+}
+
+'😁', '😂', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😌', '😍', '😏', '😒', '😓', '😔', '😖', '😘', '😚', '😜', '😝', '😞', '😠', '😡', '😢', '😣', '😤', '😥', '😨', '😩', '😪', '😫', '😭', '😰', '😱', '😲', '😳', '😵', '😷', '😸', '😹', '😺', '😻', '😼', '😽', '😾', '😿', '🙀', '🙅', '🙆', '🙇', '🙈', '🙉', '🙊', '🙋', '🙌', '🙍', '🙎', '🙏', '😀', '😇', '😈', '😎', '😐', '😑', '😕', '😗', '😙', '😛', '😟', '😦', '😧', '😬', '😮', '😯', '😴', '😶', '💚', '💛', '💝', '💞', '💟', '💔', '💕', '💖', '💗', 
+'emojiAngel', 'emojiAngry', 'emojiAstonished', 'emojiAwake', 'emojiBlowKiss', 'emojiBubbly', 'emojiCheerful', 'emojiClown', 'emojiCool, 'emojiCrave', 'emojiCray', 'emojiCrying', 'emojiCurious', 'emojiCute', 'emojiDead', 'emojiDevil', 'emojiDisappoint', 'emojiDisguise', 'emojiDJ', 'emojiDown', 'emojiEnraged', 'emojiExited', 'emojiEyeRoll', 'emojiFire', 'emojiGamer', 'emojiGlass', 'emojiGoofy', 'emojiGramps', 'emojiGrimacing', 'emojiGreen', 'emojiGrumpy', 'emojiHappy', 'emojiHeartEyes', 'emojiHmm', 'emojiKing', 'emojiKiss', 'emojiLady', 'emojiLaughing', 'emojyLoading', 'emojiLol',
+'djtotygeeappleheart', 'djtotygeecheer1', 'djtotygeecheer2', 'djtotygeedj1', 'djtotygeedj2', 'djtotygeedj3', 'djtotygeedjsmile', 'djtotygeesun', 'djtotygeecheeranimate', 'djtotygeelisteners1', 'djtotygeelistening2', 'djtotygeenicemusic', 'djtotygeepikadance', 'djtotygeewatching',
+"r)", ";p", ":p", ";)", ":\\", "<3", ":O", "B)", "O_o", ":|", ":D", ":(", ":)"
