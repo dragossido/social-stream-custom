@@ -183,7 +183,7 @@ example3: "Which food i can eat at breackfast?
 // solution of switch case is too long
 // solution is an array
 
-let responses = [
+var responses = [
   "Make sure your pet is awake and willing to provide moral support",
   "Practice your dance moves in front of a mirror for 30 minutes.",
   "Get a chair with a built-in snack dispenser.",
