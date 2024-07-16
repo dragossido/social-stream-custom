@@ -1,5 +1,7 @@
 // multiple answers
-// possible answers for question "! Do you have suggestions on streaming?"
+// possible answers for question with keyword "! streaming"
+// ex1: "! Do you have suggestion for streaming?"
+// ex2: "! how i can improve my streaming?"
 ----- streaming
 1) YourBot: Make sure your pet is awake and willing to provide moral support.
 2) YourBot: Practice your dance moves in front of a mirror for 30 minutes.
