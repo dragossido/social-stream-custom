@@ -1,0 +1,59 @@
+// multiple answers
+// possible answers for question "! Do you have suggestions on streaming?"
+----- streaming
+1) YourBot: Make sure your pet is awake and willing to provide moral support.
+2) YourBot: Practice your dance moves in front of a mirror for 30 minutes.
+3) YourBot: Get a chair with a built-in snack dispenser.
+4) YourBot: If you have connectivity issues during your stream, try talking to the router in a soothing voice and see if it helps.
+5) YourBot: Before starting, check your internet connection, update your drivers, and restart your PC.
+6) YourBot: Sure thing – Let me just consult my tarot cards real quick.
+7) YourBot: Just type out the first thing that comes to mind and see what happens.
+8) YourBot: Start doing impressions of a cat meowing loudly and watch it unfold.
+9) YourBot: Offer free pizza to everyone, especially DJTOTYGEE.
+10) YourBot: I'm not sure, but have you tried asking NASA?
+11) YourBot: Don't forget to wear your favorite lucky socks on stream day.
+12) YourBot: Remember that you're not just streaming; you're performing a magic show.
+
+//first approach: switch case
+
+      if (data.chatmessage.includes("streaming")) {
+        switch (Math.floor(Math.random() * 12)) {
+          case 0:
+            answer = `${data.chatname}YourBot: Make sure your pet is awake and willing to provide moral support`;
+            break;
+          case 1:
+            answer = `${data.chatname}YourBot: Practice your dance moves in front of a mirror for 30 minutes.`;
+            break;
+          case 2:
+            answer = `${data.chatname}YourBot: Get a chair with a built-in snack dispenser.`;
+            break;
+          case 3:
+            answer = `${data.chatname}YourBot: If you have connectivity issues during your stream, try talking to the router in a soothing voice and see if it helps.`;
+            break;
+          case 4:
+            answer = `${data.chatname}YourBot: Before starting, check your internet connection, update your drivers, and restart your PC.`;
+            break;
+          case 5:
+            answer = `${data.chatname}YourBot: Sure thing – Let me just consult my tarot cards real quick.`;
+            break;
+          case 6:
+            answer = `${data.chatname}YourBot: Just type out the first thing that comes to mind and see what happens.`;
+            break;
+          case 7:
+            answer = `${data.chatname}YourBot: Start doing impressions of a cat meowing loudly and watch it unfold.`;
+            break;
+          case 8:
+            answer = `${data.chatname}YourBot: Offer free pizza to everyone, especially DJTOTYGEE.`;
+            break;
+          case 9:
+            answer = `${data.chatname}YourBot: I'm not sure, but have you tried asking NASA?`;
+            break;
+          case 10:
+            answer = `${data.chatname}YourBot: Don't forget to wear your favorite lucky socks on stream day.`;
+            break;
+          default:
+            answer = `${data.chatname}YourBot: Remember that you're not just streaming; you're performing a magic show.`;
+            break;
+        }
+      }
+
