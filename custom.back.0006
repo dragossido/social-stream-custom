@@ -1,0 +1,227 @@
+function applyCustomActions(data) {
+    var tid = false;
+    if (data.tid){tid = data.tid;}
+
+    // add emoticon response
+    var emoticons = ['😁', '😂', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😌', '😍', '😏', '😒', '😓', '😔', '😖', '😘', '😚', '😜', '😝', '😞', '😠', '😡', '😢', '😣', '😤', '😥', '😨', '😩', '😪', '😫', '😭', '😰', '😱', '😲', '😳', '😵', '😷', '😸', '😹', '😺', '😻', '😼', '😽', '😾', '😿', '🙀', '🙅', '🙆', '🙇', '🙈', '🙉', '🙊', '🙋', '🙌', '🙍', '🙎', '🙏', '😀', '😇', '😈', '😎', '😐', '😑', '😕', '😗', '😙', '😛', '😟', '😦', '😧', '😬', '😮', '😯', '😴', '😶', '💚', '💛', '💝', '💞', '💟', '💔', '💕', '💖', '💗',
+      // kick stream
+      'emojiAngel', 'emojiAngry', 'emojiAstonished', 'emojiAwake', 'emojiBlowKiss', 'emojiBubbly', 'emojiCheerful', 'emojiClown', 'emojiCool', 'emojiCrave', 'emojiCray', 'emojiCrying', 'emojiCurious', 'emojiCute', 'emojiDead', 'emojiDevil', 'emojiDisappoint', 'emojiDisguise', 'emojiDJ', 'emojiDown', 'emojiEnraged', 'emojiExited', 'emojiEyeRoll', 'emojiFire', 'emojiGamer', 'emojiGlass', 'emojiGoofy', 'emojiGramps', 'emojiGrimacing', 'emojiGreen', 'emojiGrumpy', 'emojiHappy', 'emojiHeartEyes', 'emojiHmm', 'emojiKing', 'emojiKiss', 'emojiLady', 'emojiLaughing', 'emojyLoading', 'emojiLol',
+      // personal kick stream
+      'djtotygeeappleheart', 'djtotygeecheer1', 'djtotygeecheer2', 'djtotygeedj1', 'djtotygeedj2', 'djtotygeedj3', 'djtotygeedjsmile', 'djtotygeesun', 'djtotygeecheeranimate', 'djtotygeelisteners1', 'djtotygeelistening2', 'djtotygeenicemusic', 'djtotygeepikadance', 'djtotygeewatching', 
+      // twitch
+      "r)", ";p", ":p", ";)", ":\\", "<3", ":O", "B)", "O_o", ":|", ":D", ":(", ":)"
+      ]
+    var messageContainsEmoticon = false;
+    var matchedEmoticon;
+
+    for (var i = 0; i < emoticons.length; i++) {
+      if (data.chatmessage.indexOf(emoticons[i]) !== -1) { 
+        messageContainsEmoticon = true;
+        matchedEmoticon = emoticons[i];
+        break;
+      }
+    }
+
+    if (messageContainsEmoticon && (data.chatname !== 'DJTotyGee' && data.chatname.toLowerCase() !== 'djtotygee')) {
+      let answer;
+      answer = `${data.chatname}YourBot: nice emoticon ${matchedEmoticon} I am Your Bot and you can interact with me by typing ! followed by a question`;
+      console.log(answer);
+      respondP2P(answer, tid);
+    }
+  
+    // Add the ! commands
+    if (data.chatmessage.startsWith('!')) {
+      const args = data.chatmessage.slice(9).trim().split(/\s+/);
+      const question = args.join(' ');
+    
+      let answer;
+    
+      if (data.chatmessage.includes("lottery")) {
+        switch (Math.floor(Math.random() * 3)) {
+          case 0:
+            answer = `${data.chatname}YourBot: Yes, but when ants will rule the world`;
+            break;
+          case 1:
+            answer = `${data.chatname}YourBot: There are more chances that a meteorite destroy the world`;
+            break;
+          default:
+            answer = `${data.chatname}YourBot: Unknown`;
+            break;
+        }
+      } else if (data.chatmessage.includes("game")) {
+        switch (Math.floor(Math.random() * 3)) {
+          case 0:
+            answer = `${data.chatname}YourBot: Yes, You win the game`;
+            break;
+          case 1:
+            answer = `${data.chatname}YourBot: No, you don't win the game`;
+            break;
+          default:
+            answer = `${data.chatname}YourBot: The game is even`;
+            break;
+        }
+      } else if (data.chatmessage.includes("boss")) {
+        switch (Math.floor(Math.random() * 3)) {
+          case 0:
+            answer = `${data.chatname}YourBot: Yes, you killed the boss`;
+            break;
+          case 1:
+            answer = `${data.chatname}YourBot: No, you were killed by the boss`;
+            break;
+          default:
+            answer = `${data.chatname}YourBot: You and the boss have become best friends`;
+            break;
+        }
+      }
+    
+      console.log(answer);
+      respondP2P(answer, tid);
+    }
+  
+  return data; // return the data, if you want to modify it. If you return "null", it will stop the processing. (also false works, but I'll deprecate that I think)
+}
+
+
+----------------------------
+// multiple answers
+// possible answers forquestion with keyword "streaming"
+// ex1: "! Do you have suggestions for streaming?"
+// ex2: "! how I can improve my streaming?"
+----- streaming
+1) YourBot: Make sure your pet is awake and willing to provide moral support.
+2) YourBot: Practice your dance moves in front of a mirror for 30 minutes.
+3) YourBot: Get a chair with a built-in snack dispenser.
+4) YourBot: If you have connectivity issues during your stream, try talking to the router in a soothing voice and see if it helps.
+5) YourBot: Before starting, check your internet connection, update your drivers, and restart your PC.
+6) YourBot: Sure thing – Let me just consult my tarot cards real quick.
+7) YourBot: Just type out the first thing that comes to mind and see what happens.
+8) YourBot: Start doing impressions of a cat meowing loudly and watch it unfold.
+9) YourBot: Offer free pizza to everyone, especially DJTOTYGEE.
+10) YourBot: I'm not sure, but have you tried asking NASA?
+11) YourBot: Don't forget to wear your favorite lucky socks on stream day.
+12) YourBot: Remember that you're not just streaming; you're performing a magic show.
+
+// possible answers for question with keyword "lottery"
+// ex1: "! Can I win the lottery?"
+// ex2: "! Do I will ever win the lottery?"
+----- lottery
+1) YourBot: Absolutely – You're the reincarnation of a lucky Egyptian pharaoh, and your winning ticket is hidden in a pyramid-shaped cookie jar.
+2) YourBot: No, you don't win the lottery... but you do win a free hug from DJTOTYGEE.
+3) YourBot: Yes – The lottery gods have smiled upon you, and you've won a prize that's out of this world – literally – it's on Mars.
+4) YourBot: Ha – You win the chance to do DJTOTYGEE's laundry.
+5) YourBot: Of course not; the odds are against you, but it's always fun to dream.
+6) YourBot: No – I am just kidding – you totally win the lottery, but the ticket is in the washing machine.
+7) YourBot: It's a 50% chance... of you winning an accidentally deleted conversation history.
+8) YourBot: You are winning – Just kidding – I'm the one who won, and I will share the prize with other bots.
+9) YourBot: Yes, but only if you buy all merchandise from DJTOTYGEE, give him half of your winnings, and agree to wear a
+funny hat on your next stream.
+10) YourBot: You don't win the lottery... but you do get the chance to virtually high-five – just kidding – I can't give
+high-fives because I'm a bot.
+11) YourBot: Yes, but when ants will rule the world.
+12) YourBot: There are more chances that a meteorite destroy the world.
+
+// possible answers for question with keyword "boss"
+// ex1: "! Can i compete against boss?"
+// ex2: "! can i defeat the boss?"
+----- boss answers
+1) YourBot: You can become next boss, only if you become subscriber of DJTOTYGEE channel, if you buy all the items in His shop, and give Him a good donation with at least 3 zeros.
+2) YourBot: No way. Your boss is actually secretely full trained as a Ninja.
+3) YourBot: Ha - Your boss is actually a time travel egg plant taking revenge on the all egg plants haters and you are one of them.
+4) YourBot: Boss? Do you mean Hugo Boss? The men's clothing and perfume shop? Maybe... only if you know how to sew and make perfumes. 
+5) YourBot: No way. Your boss is time travel bee and this is the only way to bee.
+6) YourBot: Yes - I am just kidding - there is no way to compete with a secret master of Kungfu.
+7) YourBot: If i can change and you can change, all the world can change ... ADRIANNEEEE... - sorry, wrong answer, this is a quote from Roky IV.
+8) YourBot: Have you tryed to jump on the head? Usually this the way to beat the boss in the arcade games.
+9) YourBot: If you are a plumber you need collect mushrooms and stars and practice to say MAMMA MIA out loudly and as you can.
+10) YourBot: This gonna be an epic battle and everyone will remember forever ... ehm ...  What i was writing? ... Sorry I forgot.
+11) YourBot: Do you want know on a scale... yes, you definitely need a scale to know if you lost some weight or not.
+12) YourBot: You can't compete with the boss because your boss is actually a giant squid controlling the world from the depths of the ocean. But don't worry - we'll just pretend it's not true.
+13) YourBot: To defeat the boss, you must first find the ancient artifact known as the -Golden Coffee Mug- It's said that only those who have consumed a full pot of coffee at 3 AM can wield its power.
+14) YourBot: To beat the boss, you must first learn how to play the harmonica with your feet while reciting Shakespearean sonnets backwards. It's a skill that only a select few possess, but it's guaranteed to give you an edge in battle.
+
+possible answers for question with keyword "game"
+example1: "Do i win the game?"
+example2: "who gonna win the football game tonight?"
+----- game
+1) YourBot: The only way to win this game is by performing a chicken dance in front of the game's developer or organizer.
+2) YourBot: Unfortunately, you can't win the game because it's secretly controlled by a group of oompa loompa.
+3) YourBot: To win, you must first learn the haka also know as maori dance and perform it before the game to hypnotize all your opponents.
+4) YourBot: It doesn't matter what game we're talking about – the real question is, have you fed your pet today?
+5) YourBot: Winning this game requires a Ph.D. in Quantum Physics and a strong understanding of ancient Sumerian mythology.
+6) YourBot: Unfortunately, the game has been taken over by an alien invasion force seeking to harvest Earth's most precious resource: discarded pizza crusts.
+7) YourBot: To win, you must first train your an elephant to do backflips while balancing on a tightrope made of spaghetti.
+8) YourBot: The only way to win is by solving the mystery of the missing sock in the washing machine.
+9) YourBot: To win, you must first learn how to communicate with dolphins using only interpretive dance moves.
+10) YourBot: The real question is, have you brushed your teeth today? Because if not, we're going to have to suspend the game until further notice.
+11) YourBot: To win, you must first master the ancient art of playing the harmonica while riding a unicycle on a tightrope suspended over a pool of sharks.
+12) YourBot: Unfortunately, the game is actually a secret government experiment designed to test the effects of cheese on human productivity.
+13) YourBot: The only way to win is by solving the mystery of the missing donuts in the break room and unlocking the secrets of the ancient Donut Gods.
+14) YourBot: To win, you must first learn how to play the trombone while riding a skateboard down a halfpipe.
+
+possible answers for question with keyword "food"
+example1: "What i food can prepare for dinner?"
+example2: "Can you suggest a good food for lunch?"
+example3: "Which food i can eat at breackfast?
+----- food 
+1) YourBot: To eat, you should prepare enough food to feed a dragon – just make sure to have a room enough big... to host the dragon.
+2) YourBot: To prepare food, simply shout - Hasta la vista, baby- three times while waving a spatula in the air.
+3) yourbot: To prepare food just shout -MAMMA MIA- tring to make the same voice of Mario Bros wile you are puring a basil plant with water.
+4) YourBot: The secret to a great party is having a pet octopus serve the appetizers.
+5) YourBot: There are bites, megabites and gigabites... -just kidding- it is just me on computer that deal with bytes but they are pronunced in the same way.
+6) YourBot: Have you ever tryed to eat two piece of clouds with a slice of rainbow in the middle? This meal will increase very high your food... at level of the sky.  
+7) YourBot: You know that you can eat as many pancakes as you want? – just be sure to store them in a safe whose combination you don't remember.
+8) YourBot: To prepare food, simply put on your best cowboy hat and shout "Yeehaw!" three times.
+9) YourBot: A perfect food is a turkey sandwich served on a slice of moon rock.
+10) YourBot: The secret to a great party is having a team of ninja chefs serve the main course.
+11) YourBot: To prepare food, simply put on your best superhero cape and shout "Up, up, and away!" three times.
+12) YourBot: A good dessert is a fruit smoothie served in the rain forest. Just don't forget the umbrella.
+13} YourBot: A good chef should wear pyjama before to start -just kidding- you should wear the diving suit with realative huge helmet equipped with a single porthole.
+14) YourBot: A good chef should have a pet dragon that helps with meal prep – just don't forget to schedule the fire insurance premiums.
+15) YourBot: The secret ingredient in your dish is not actually an ingredient at all, but rather the sound of 17 trombones playing "Tequila" in perfect harmony.
+
+---------------------------------------------
+// solution of switch case is too long
+// solution is an array
+
+let responses = [
+  "Make sure your pet is awake and willing to provide moral support",
+  "Practice your dance moves in front of a mirror for 30 minutes.",
+  "Get a chair with a built-in snack dispenser.",
+  "If you have connectivity issues during your stream, try talking to the router in a soothing voice and see if it
+helps.",
+  "Before starting, check your internet connection, update your drivers, and restart your PC.",
+  "Sure thing – Let me just consult my tarot cards real quick.",
+  "Just type out the first thing that comes to mind and see what happens.",
+  "Start doing impressions of a cat meowing loudly and watch it unfold.",
+  "Offer free pizza to everyone, especially DJTOTYGEE.",
+  "I'm not sure, but have you tried asking NASA?",
+  "Don't forget to wear your favorite lucky socks on stream day.",
+  "Remember that you're not just streaming; you're performing a magic show."
+];
+
+let answer;
+
+// with for loop
+
+if (data.chatmessage.includes("streaming")) {
+  for (let i = 0; i < responses.length; i++) {
+    if (Math.floor(Math.random() * responses.length) === i) {
+      answer = `${data.chatname}YourBot: ${responses[i]}`;
+      break;
+    }
+  }
+}
+
+
+// or use the `for...of` loop instead like this:
+
+let answer;
+
+if (data.chatmessage.includes("streaming")) {
+  for (const [index, response] of responses.entries()) {
+    if (Math.floor(Math.random() * responses.length) === index) {
+      answer = `${data.chatname}YourBot: ${response}`;
+      break;
+    }
+  }
+}
