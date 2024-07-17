@@ -1,4 +1,4 @@
-// better approach of for loop
+//a better kind of for loop iteration called Fisher-Yates shuffle.
 
 //if (data.chatmessage.includes("stream")) {
 //  const randomIndex = Math.floor(Math.random() * replyStream.length);
