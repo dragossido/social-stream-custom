@@ -1,4 +1,4 @@
-//better kind of for loop iteration
+//a better kind of for loop iteration called Fisher-Yates shuffle.
 // let create array and a for - to loop.
 function applyCustomActions(data) {
   var tid = false;
