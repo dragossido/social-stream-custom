@@ -1,3 +1,4 @@
+//better kind of for loop iteration
 // let create array and a for - to loop.
 function applyCustomActions(data) {
   var tid = false;
@@ -54,13 +55,9 @@ function applyCustomActions(data) {
     let answer;
   
     if (data.chatmessage.includes("stream")) {
-      for (const [index, replyStream] of replyStream.entries()) {
-          if (Math.floor(Math.random() * food.length) === index) {
-              answer = `${data.chatname}YourBot: ${replyStream}`;
-              break;
-          }
-      }
-  } else if (data.chatmessage.includes("lottery")) {
+      const randomIndex = Math.floor(Math.random() * replyStream.length);
+      answer = `${data.chatname}YourBot: ${replyStream[randomIndex]}`;
+    } else if (data.chatmessage.includes("lottery")) {
       switch (Math.floor(Math.random() * 3)) {
         case 0:
           answer = `${data.chatname}YourBot: Yes, but when ants will rule the world`;
