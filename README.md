@@ -25,9 +25,13 @@ Your Bot uses social stream project that can be found here: https://github.com/s
 ### Examples
 * "! Do you have suggestions for streaming?"
 * "! Can I win the lottery?"
-* "! Can i defeat the boss?"
-* "! Do i win the game?"
+* "! Can I defeat the boss?"
+* "! Do I win the game?"
 * "! Which food can I prepare for dinner?"
+
+### Your bot in action (screenshot)
+![image](https://github.com/user-attachments/assets/37d333be-351a-4121-8927-1ec7e906387c)
+* In this case in the chat "GPB_222" typed an emoticon and the bot replied as was me but becoming "GPB_222Bot"
 
 ### Future Plans
 * Add support for more emoticons and keywords
@@ -46,17 +50,17 @@ This is a custom JS for the social stream Project.
 This Project aims to create a bot in JavaScript that interacts with people and runs on the social stream project that can be found here: https://github.com/steveseguin/social_stream
 
 I have called this project "Your Bot" 
-Normal bot replies to users when the user type "!" followed by a command.
+A normal bot replies to users when the user types "!" followed by a command.
 Initially, I thought the same approach but decided to go a little forward.
 "Your Bot" replies to emoticons and some of the questions that have specific words in it.
 
 example: 
 a normal bot with the command "!Weather" tells you how the weather is. 
-"Your bot" you can type "!How is the weather today?" and not only reply, but use as reply your user name followed by "YourBot".
+"Your bot" you can type "!How is the weather today?" and not only reply but use as reply your user name followed by "YourBot".
 So for example if your username is "carlins" and you ask "!How is the weather today?" 
 You will have that reply "carlinsYourBot: the weather is pretty good today."
 
 I have developed this project with my personal preferences and with silly, fun and joke answers.
 I hope to have enough time to develop more
 
-All files that have "custom.back" in the name are back up and notes.
+All files that have "custom.back" in the name are backups and notes.
