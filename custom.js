@@ -1,3 +1,4 @@
+// let create array and a for - to loop.
 function applyCustomActions(data) {
     var tid = false;
     if (data.tid){tid = data.tid;}
@@ -10,7 +11,7 @@ function applyCustomActions(data) {
       'djtotygeeappleheart', 'djtotygeecheer1', 'djtotygeecheer2', 'djtotygeedj1', 'djtotygeedj2', 'djtotygeedj3', 'djtotygeedjsmile', 'djtotygeesun', 'djtotygeecheeranimate', 'djtotygeelisteners1', 'djtotygeelistening2', 'djtotygeenicemusic', 'djtotygeepikadance', 'djtotygeewatching', 
       // twitch
       "r)", ";p", ":p", ";)", ":\\", "<3", ":O", "B)", "O_o", ":|", ":D", ":(", ":)"
-      ]
+      ];
     var messageContainsEmoticon = false;
     var matchedEmoticon;
 
@@ -28,6 +29,22 @@ function applyCustomActions(data) {
       console.log(answer);
       respondP2P(answer, tid);
     }
+    
+    //array of answer streaming
+    var replyStream = [
+        "Make sure your pet is awake and willing to provide moral support.",
+        "YourBot: Practice your dance moves in front of a mirror for 30 minutes.", 
+        "Get a chair with a built-in snack dispenser.", 
+        "If you have connectivity issues during your stream, try talking to the router in a soothing voice and see if it helps.", 
+        "Before starting, check your internet connection, update your drivers, and restart your PC.",
+        "Sure thing – Let me just consult my tarot cards real quick.",
+        "Just type out the first thing that comes to mind and see what happens.", 
+        "Start doing impressions of a cat meowing loudly and watch it unfold.",
+        "Offer free pizza to everyone, especially DJTOTYGEE.",
+        "I'm not sure, but have you tried asking NASA?",
+        "Don't forget to wear your favorite lucky socks on stream day.",
+        "Remember that you're not just streaming; you're performing a magic show."
+    ];
   
     // Add the ! commands
     if (data.chatmessage.startsWith('!')) {
@@ -36,7 +53,14 @@ function applyCustomActions(data) {
     
       let answer;
     
-      if (data.chatmessage.includes("lottery")) {
+      if (data.chatmessage.includes("stream")) {
+        for (const [index, replyStream] of replyStream.entries()) {
+            if (Math.floor(Math.random() * food.length) === index) {
+                answer = `${data.chatname}YourBot: ${replyStream}`;
+                break;
+            }
+        }
+    } else if (data.chatmessage.includes("lottery")) {
         switch (Math.floor(Math.random() * 3)) {
           case 0:
             answer = `${data.chatname}YourBot: Yes, but when ants will rule the world`;
