@@ -1,5 +1,46 @@
 # social-stream-custom
 
+# Your Bot: A Conversational Chatbot
+![botwithback](https://github.com/user-attachments/assets/359ab4fc-5a3b-497c-943a-1f1c93d84b06)
+
+### Overview
+
+Your Bot is a conversational chatbot developed using JavaScript. It runs on the social stream project that can be found here: https://github.com/steveseguin/social_stream
+It's designed to respond to common emoticons and questions in a personalized way, incorporating user names and offering silly/funny answers to questions with
+special keywords.
+
+### Goals and Features
+
+* Respond to common emoticons. streaming emoticons owned by Kick, Twitch, D-live and questions.
+* Incorporate user names into responses for a more personalized touch.
+* Offer silly/funny answers to questions with special keywords (e.g. "streaming", "lottery", "boss", "game", or
+"food").
+* Developed entirely with JavaScript, no AI required!
+
+### Technical Details
+
+Your Bot uses social stream project that can be found here: https://github.com/steveseguin/social_stream
+
+### How it Works
+
+1. Start your question with a "!" to trigger the bot's response.
+2. Use keywords like "streaming", "lottery", "boss", "game", or "food" to get humorous and personalized answers.
+
+### Examples
+
+* "! Do you have suggestions for streaming?"
+* "! Can I win the lottery?"
+* "! Can i defeat the boss?"
+* "! Do i win the game?"
+* "! Which food can I prepare for dinner?"
+
+### Future Plans
+* Add support for more emoticons and keywords
+* Ask users which keywords they would like
+* May be a Discord version
+
+----------------
+###Detailed description
 This is a custom JS for the social stream Project.
 
 This Project aims to create a bot in JavaScript that interacts with people and runs on the social stream project that can be found here: https://github.com/steveseguin/social_stream
